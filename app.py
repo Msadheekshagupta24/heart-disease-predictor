@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, send_file
-from whitenoise import WhiteNoise
 import joblib
 import numpy as np
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
@@ -9,10 +8,7 @@ from reportlab.pdfbase.cidfonts import UnicodeCIDFont
 import os
 from datetime import datetime
 
-app = Flask(__name__, static_folder="static", template_folder="templates")
-
-# Serve static files correctly in production (Render)
-app.wsgi_app = WhiteNoise(app.wsgi_app, root="static", prefix="static/")
+app = Flask(__name__)
 
 
 # Load trained model
@@ -109,4 +105,5 @@ def download():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
+
 
