@@ -4,4 +4,5 @@ numpy
 scikit-learn
 reportlab
 gunicorn
-white noise
+whitenoise
+
