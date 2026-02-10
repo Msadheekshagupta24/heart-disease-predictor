@@ -10,7 +10,9 @@ import os
 from datetime import datetime
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
-app.wsgi_app = WhiteNoise(app.wsgi_app, root="static"
+
+# Serve static files correctly in production (Render)
+app.wsgi_app = WhiteNoise(app.wsgi_app, root="static")
 
 # Load trained model
 model = joblib.load("heart_model.pkl")
@@ -36,7 +38,7 @@ def predict():
     prob = model.predict_proba(final_values)[0][1]
     prob_percent = round(prob * 100, 2)
 
-    # Risk text
+    # Risk text + tips
     if prediction == 1:
         result = "⚠️ High Risk of Heart Disease"
         tips = [
@@ -105,6 +107,4 @@ def download():
 
 
 if __name__ == "__main__":
-     app.run(host="0.0.0.0", port=10000)
-
-
+    app.run(host="0.0.0.0", port=10000)
