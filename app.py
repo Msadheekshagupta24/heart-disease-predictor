@@ -12,7 +12,8 @@ from datetime import datetime
 app = Flask(__name__, static_folder="static", template_folder="templates")
 
 # Serve static files correctly in production (Render)
-app.wsgi_app = WhiteNoise(app.wsgi_app, root="static")
+app.wsgi_app = WhiteNoise(app.wsgi_app, root="static", prefix="static/")
+
 
 # Load trained model
 model = joblib.load("heart_model.pkl")
@@ -108,3 +109,4 @@ def download():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
+
