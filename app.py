@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, send_file
+from whitenoise import WhiteNoise
 import joblib
 import numpy as np
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
@@ -9,7 +10,7 @@ import os
 from datetime import datetime
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
-
+app.wsgi_app = WhiteNoise(app.wsgi_app, root="static"
 
 # Load trained model
 model = joblib.load("heart_model.pkl")
@@ -105,4 +106,5 @@ def download():
 
 if __name__ == "__main__":
      app.run(host="0.0.0.0", port=10000)
+
 
