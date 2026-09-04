@@ -1,16 +1,18 @@
 # 🩺 Heart Disease Predictor
 
-A Flask-based machine-learning web application that demonstrates heart
-disease risk prediction using user-provided health parameters.
+A Flask-based machine learning web application that predicts the risk of heart disease using user-provided health parameters.
+
+The application uses a trained machine learning model to generate a risk prediction, display the prediction probability, and provide general health recommendations.
 
 ## 🚀 Features
 
 - 🩺 Predict heart disease risk using a trained ML model
 - 📊 Display prediction probability
-- 📈 Visualize the probability with a progress bar
+- 📈 Visualize probability using a progress bar
 - 💡 Provide recommendations based on the prediction
 - 📄 Generate and download a PDF prediction report
-- 🖥️ Web interface built with Flask and HTML/CSS
+- 🖥️ Simple web interface built with Flask, HTML, and CSS
+- ⚡ Real-time prediction through a web form
 
 ## 🛠️ Technologies Used
 
