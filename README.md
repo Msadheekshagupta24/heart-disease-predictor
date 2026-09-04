@@ -47,3 +47,8 @@ The application accepts the following health parameters:
 
 ```bash
 git clone https://github.com/Msadheekshagupta24/heart-disease-predictor.git
+cd heart-disease-predictor
+pip install -r requirements.txt
+python app.py
+
+
